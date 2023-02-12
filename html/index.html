@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{url_for('static',filename='script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <nav>
+        <h1 style="text-align: center;">Classes</h1>
+        <button onclick="return_div_num(1)" value="">Division 1</button>
+        <button onclick="return_div_num(2)" value="">Division 2</button>
+        <button onclick="return_div_num(3)" value="">Division 3</button>
+        <button onclick="return_div_num(4)" value="">Division 4</button>
+        <button onclick="return_div_num(5)" value="">Division 5</button>
+        <button onclick="return_div_num(6)" value="">Division 6</button>
+        <button onclick="return_div_num(7)" value="">Division 7</button>
+        <button onclick="return_div_num(8)" value="">Division 8</button>
+        <button onclick="return_div_num(9)" value="">Division 9</button>
+        <button onclick="return_div_num(10)" value="">Division 10</button>
+    </nav>
+    <div>
+        <p value="date_time">day and date here</p>
+        <p value="current_class">current class here</p>
+        <p value="next_class">next class here</p>
+    </div>
+    <footer>
+        <p>Just a minor project made for upskilling, not for functional usage. </p>
+    </footer>
+</body>
+
+</html>

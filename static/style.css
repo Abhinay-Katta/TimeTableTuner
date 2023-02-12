@@ -1,0 +1,64 @@
+div {
+
+    padding: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    border: 9px solid rgb(48, 30, 103);
+    border-radius: 20px;
+}
+
+nav h1,
+nav button,
+footer p {
+    color: rgb(48, 30, 103);
+    transition-duration: 400ms;
+    cursor: default;
+}
+
+nav h1:hover,
+nav button:hover,
+footer p:hover {
+    cursor: default;
+    text-decoration: underline;
+    color: rgb(91, 143, 185);
+    transition-duration: 400ms;
+
+}
+
+
+nav {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+nav button {
+    display: none;
+    padding-bottom: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 4px solid rgb(48, 30, 103);
+    border-radius: 20px;
+    transition-duration: 400ms;
+}
+
+
+* {
+    font-family: 'Quicksand';
+    background-color: rgb(3, 0, 28);
+    color: rgb(91, 143, 185);
+}
+
+p,
+button {
+    font-weight: 900;
+    font-size: large;
+}
+
+footer p {
+    font-size: small;
+    text-align: center;
+}
