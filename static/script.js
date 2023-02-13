@@ -36,14 +36,14 @@ function return_div_num(num) {
     });
 }
 // yoinked from chatGPT
-// function getData() {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open("GET", "/your_function", true);
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             var data = JSON.parse(xhr.responseText);
-//             document.getElementById("data").innerHTML = data;
-//         }
-//     };
-//     xhr.send();
-// }
+function getData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/return_json_data", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            document.getElementById("data").innerHTML = data;
+        }
+    };
+    xhr.send();
+}

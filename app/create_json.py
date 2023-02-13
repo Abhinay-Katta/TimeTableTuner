@@ -14,18 +14,17 @@ def create_json_file(num):
     dff = pandas.read_excel(
         './tt.xlsx', sheet_name=sheetname)
     new_dff = clean_TT(dff)
-    return str(new_dff)
-    # json_string = new_dff.to_json(orient="records")
-    # folder_path = os.path.join(os.sep, 'app\json')
+    json_string = new_dff.to_json(orient="records")
+    folder_path = os.path.join(os.sep, '/app/json')
 
-    # if not os.path.exists(folder_path):
-    #     os.makedirs(folder_path)
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
 
-    # file_path = os.path.join(folder_path, file_name)
+    file_path = os.path.join(folder_path, file_name)
 
-    # with open(file_path, "a") as file:
-    #     file.write(json_string)
-    #     return file
+    with open(file_path, "a") as file:
+        file.write(json_string)
+        return file
 
 
 def clean_TT(df1):
