@@ -1,0 +1,7 @@
+You can't host a python application on Github pages, it's designed for simple static file hosting. You
+could use something like Flask-Frozen to turn your Flask application into static pages, but then you 
+obviously have some big tradeoffs depending on your site's functionality.
+
+RIP
+
+vercel to the rescue
