@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{url_for('static',filename='script.js') }}"></script>
@@ -8,7 +6,8 @@
 
 </head>
 
-<body>
+<body onload="getData()">
+    <p id="json"></p>
     <nav>
         <h1 style="text-align: center;">Classes</h1>
         <button onclick="return_div_num(1)" value="">Division 1</button>
@@ -20,7 +19,6 @@
         <button onclick="return_div_num(7)" value="">Division 7</button>
         <button onclick="return_div_num(8)" value="">Division 8</button>
         <button onclick="return_div_num(9)" value="">Division 9</button>
-        <button onclick="return_div_num(10)" value="">Division 10</button>
     </nav>
     <div>
         <p value="date_time">day and date here</p>

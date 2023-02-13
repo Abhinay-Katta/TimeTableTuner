@@ -22,20 +22,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-var buttons = document.querySelectorAll("button");
 
 function return_div_num(num) {
-    // alert(num);
     $.ajax({
         type: 'POST',
-        url: '/your/flask/route',
+        url: '/return_json_data',
         data: { value: num },
         success: function (response) {
-            alert(response);
+            document.getElementById('json').innerHTML = response;
             // handle the response from Flask here
             // TODO: print the datetime, current class, next classes and other shit using this.
         }
     });
-
-
 }
+// yoinked from chatGPT
+// function getData() {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("GET", "/your_function", true);
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             var data = JSON.parse(xhr.responseText);
+//             document.getElementById("data").innerHTML = data;
+//         }
+//     };
+//     xhr.send();
+// }
