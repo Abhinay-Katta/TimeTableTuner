@@ -1,4 +1,4 @@
 test/*
 *.md
 __pycache__
-
+*.txt
