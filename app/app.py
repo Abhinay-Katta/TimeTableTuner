@@ -38,6 +38,9 @@ def clean_TT(df1):
     df1.iloc[5, :] = df1.iloc[5, :].fillna('RECESS')
     df1.fillna(method='ffill', inplace=True)
     df1.iloc[4, 0] = '01:50 - 02:40'
+    df1.rename(columns={df1.columns[0]: "Time"}, inplace=True)
+    df1.rename(columns={df1.columns[1]: "MONDAY"}, inplace=True)
+    df1.rename(columns={df1.columns[-1]: "FRIDAY"}, inplace=True)
     print("data cleaned")
     return df1
 

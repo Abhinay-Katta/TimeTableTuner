@@ -1,1 +1,66 @@
-[{"DAY\nTIMING              ":"10:00 - 11:00","MONDAY (online)":"6B4:CS:F1","TUESDAY":"6B4:GPU:MK(N-608)","WEDNESDAY":"6B4:ML:TM1:N-607","THURSDAY":"6B4:MAD:BM","FRIDAY (online)":"6B4:ML:AR:N-608"},{"DAY\nTIMING              ":"11:00 - 12:00","MONDAY (online)":"6B4:CS:F1","TUESDAY":"6B4:GPU:MK(N-608)","WEDNESDAY":"6B4:CD:SK(N-607)","THURSDAY":"6B4:MAD:BM","FRIDAY (online)":"6B4:ML:AR:N-608"},{"DAY\nTIMING              ":"12:00 - 01:00","MONDAY (online)":"RECESS","TUESDAY":"RECESS","WEDNESDAY":"RECESS","THURSDAY":"RECESS","FRIDAY (online)":"RECESS"},{"DAY\nTIMING              ":"01:00 - 01:50","MONDAY (online)":"6B4:MAD:F1","TUESDAY":"6B4:ES: (N-608)","WEDNESDAY":"LIBRARY","THURSDAY":"6B4:CS:F1","FRIDAY (online)":"6B41:CD:SK:(N-608)\n 6B42:CD:RV:(N-608)"},{"DAY\nTIMING              ":"01:50 - 02:40","MONDAY (online)":"LIBRARY","TUESDAY":"6B4:CD:SK(N-608)","WEDNESDAY":"LIBRARY","THURSDAY":"LIBRARY","FRIDAY (online)":"6B41:CD:SK:(N-608)\n 6B42:CD:RV:(N-608)"},{"DAY\nTIMING              ":"02:40 - 03:00","MONDAY (online)":"RECESS","TUESDAY":"RECESS","WEDNESDAY":"RECESS","THURSDAY":"RECESS","FRIDAY (online)":"RECESS"},{"DAY\nTIMING              ":"03:00 - 04:00","MONDAY (online)":"6B41:CS:F1 6B42:CS:F1","TUESDAY":"6B4:ML:AR:N-608","WEDNESDAY":"6B4:CD:SK(N-606)","THURSDAY":"6B41:MAD:BM      6B42:MAD:BM","FRIDAY (online)":"6B41:GPU:MK:(N-608)\n 6B42:GPU:YB:(N-608)"},{"DAY\nTIMING              ":"04:00 - 05:00","MONDAY (online)":"6B41:CS:F1 6B42:CS:F1","TUESDAY":"6B4:ML:AR:N-608","WEDNESDAY":"6B4:GPU:MK(N-606)","THURSDAY":"6B41:MAD:BM      6B42:MAD:BM","FRIDAY (online)":"6B41:GPU:MK:(N-608)\n 6B42:GPU:YB:(N-608)"}]
+[
+    {
+        "Time": "10:00 - 11:00",
+        "MONDAY": "6B4:CS:F1",
+        "TUESDAY": "6B4:GPU:MK(N-608)",
+        "WEDNESDAY": "6B4:ML:TM1:N-607",
+        "THURSDAY": "6B4:MAD:BM",
+        "FRIDAY": "6B4:ML:AR:N-608"
+    },
+    {
+        "Time": "11:00 - 12:00",
+        "MONDAY": "6B4:CS:F1",
+        "TUESDAY": "6B4:GPU:MK(N-608)",
+        "WEDNESDAY": "6B4:CD:SK(N-607)",
+        "THURSDAY": "6B4:MAD:BM",
+        "FRIDAY": "6B4:ML:AR:N-608"
+    },
+    {
+        "Time": "12:00 - 01:00",
+        "MONDAY": "RECESS",
+        "TUESDAY": "RECESS",
+        "WEDNESDAY": "RECESS",
+        "THURSDAY": "RECESS",
+        "FRIDAY": "RECESS"
+    },
+    {
+        "Time": "01:00 - 01:50",
+        "MONDAY": "6B4:MAD:F1",
+        "TUESDAY": "6B4:ES: (N-608)",
+        "WEDNESDAY": "LIBRARY",
+        "THURSDAY": "6B4:CS:F1",
+        "FRIDAY": "6B41:CD:SK:(N-608)\n 6B42:CD:RV:(N-608)"
+    },
+    {
+        "Time": "01:50 - 02:40",
+        "MONDAY": "LIBRARY",
+        "TUESDAY": "6B4:CD:SK(N-608)",
+        "WEDNESDAY": "LIBRARY",
+        "THURSDAY": "LIBRARY",
+        "FRIDAY": "6B41:CD:SK:(N-608)\n 6B42:CD:RV:(N-608)"
+    },
+    {
+        "Time": "02:40 - 03:00",
+        "MONDAY": "RECESS",
+        "TUESDAY": "RECESS",
+        "WEDNESDAY": "RECESS",
+        "THURSDAY": "RECESS",
+        "FRIDAY": "RECESS"
+    },
+    {
+        "Time": "03:00 - 04:00",
+        "MONDAY": "6B41:CS:F1 6B42:CS:F1",
+        "TUESDAY": "6B4:ML:AR:N-608",
+        "WEDNESDAY": "6B4:CD:SK(N-606)",
+        "THURSDAY": "6B41:MAD:BM      6B42:MAD:BM",
+        "FRIDAY": "6B41:GPU:MK:(N-608)\n 6B42:GPU:YB:(N-608)"
+    },
+    {
+        "Time": "04:00 - 05:00",
+        "MONDAY": "6B41:CS:F1 6B42:CS:F1",
+        "TUESDAY": "6B4:ML:AR:N-608",
+        "WEDNESDAY": "6B4:GPU:MK(N-606)",
+        "THURSDAY": "6B41:MAD:BM      6B42:MAD:BM",
+        "FRIDAY": "6B41:GPU:MK:(N-608)\n 6B42:GPU:YB:(N-608)"
+    }
+]
