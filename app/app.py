@@ -69,7 +69,7 @@ def print_schedule():
     # main:
 app = Flask(__name__,
             static_folder='../static',
-            template_folder='../templates')
+            template_folder='../html')
 
 
 @ app.route('/')
