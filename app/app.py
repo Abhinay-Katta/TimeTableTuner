@@ -86,7 +86,7 @@ def schedule(sheetname):
         data = json.load(f)
     now = datetime.datetime.now()
     day = now.strftime("%A").upper()  # day done
-    time = '02:12'  # now.strftime("%H:%M")
+    time = now.strftime("%H:%M")
     print(time)
     for index, i in enumerate(data):
         time_range = i.get("Time")
@@ -109,6 +109,7 @@ def schedule(sheetname):
         next_class = "Classes over"
     response = [day, time, current_class, previous_class, next_class]
     return response
+
 
     # main:
 app = Flask(__name__,
