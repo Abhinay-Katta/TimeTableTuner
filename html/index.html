@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-<html>
-=======
 <!DOCTYPE html>
->>>>>>> b0623ad29a74fdb1e89afa4a1b40011ebc6dc131
+
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{url_for('static',filename='script.js') }}"></script>
@@ -10,10 +7,10 @@
 
 </head>
 
-<body onload="getData()">
+<body>
     <p id="json"></p>
     <nav>
-        <h1 style="text-align: center;">Classes</h1>
+        <h1 style="text-align: center;">Divisions</h1>
         <button onclick="return_div_num(1)" value="">Division 1</button>
         <button onclick="return_div_num(2)" value="">Division 2</button>
         <button onclick="return_div_num(3)" value="">Division 3</button>
@@ -24,22 +21,15 @@
         <button onclick="return_div_num(8)" value="">Division 8</button>
         <button onclick="return_div_num(9)" value="">Division 9</button>
     </nav>
-    <div>
-        <p value="date_time">day and date here</p>
-        <p value="current_class">current class here</p>
-        <p value="next_class">next class here</p>
+    <div class="date_time">
+        <h1 id="day">weekday</h1>
+        <h3 id="time">time</h3>
+        <div>
+            <p id="previous_class"> class </p>
+            <h2 id="class"> class </h2>
+            <p id="next_class"> class </p>
+        </div>
     </div>
-    {% comment %}
-    TODO:
-        1. Next class and details
-        2. Previous class and details  
-    {% endcomment %}
-    <div>
-        <p>
-        </p>
-        
-    </div>
-
     <footer>
         <p>Just a minor project made for upskilling, not for functional usage. </p>
     </footer>
