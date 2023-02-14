@@ -36,6 +36,7 @@ function return_div_num(num) {
     });
 }
 // yoinked from chatGPT
+<<<<<<< HEAD
 // function getData() {
 //     var xhr = new XMLHttpRequest();
 //     xhr.open("GET", "/your_function", true);
@@ -47,3 +48,16 @@ function return_div_num(num) {
 //     };
 //     xhr.send();
 // }
+=======
+function getData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/return_json_data", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            document.getElementById("data").innerHTML = data;
+        }
+    };
+    xhr.send();
+}
+>>>>>>> b0623ad29a74fdb1e89afa4a1b40011ebc6dc131
