@@ -103,10 +103,12 @@ def schedule(sheetname):
                 next_class = data[index+1].get(day)
             else:
                 next_class = None
-    if (time > end_time):
-        current_class = "Classes over"
-        previous_class = "Classes over"
-        next_class = "Classes over"
+    if not ('10:00' < time or time > end_time):
+        current_class = "no classes currently"
+        previous_class = "no classes currently"
+        next_class = "no classes currently"
+    if (day == 'SUNDAY' or day == 'SATURDAY'):
+        current_class = previous_class = next_class = 'No classes today'
     response = [day, time, current_class, previous_class, next_class]
     return response
 
