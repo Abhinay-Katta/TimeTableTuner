@@ -38,9 +38,19 @@ def clean_TT(df1):
     df1.iloc[5, :] = df1.iloc[5, :].fillna('RECESS')
     df1.fillna(method='ffill', inplace=True)
     df1.iloc[4, 0] = '01:50 - 02:40'
+# REMOVED PART:
+    # df1.columns = df1.columns.str.replace('(online)', '')
+    # df1.columns = df1.columns.str.replace(' ', '')
+    # df1.columns = df1.columns.str.replace('Y()', 'Y')
+# REASON:
+    # STRING FIX WAS NOT WORKING, SO JUST HAD TO REPLACE THAT WITH THE FOLLOWING:
+    # INCREASES WORKLOAD BUT DOES WORK:
     df1.rename(columns={df1.columns[0]: "Time"}, inplace=True)
     df1.rename(columns={df1.columns[1]: "MONDAY"}, inplace=True)
-    df1.rename(columns={df1.columns[-1]: "FRIDAY"}, inplace=True)
+    df1.rename(columns={df1.columns[2]: "TUESDAY"}, inplace=True)
+    df1.rename(columns={df1.columns[3]: "WEDNESDAY"}, inplace=True)
+    df1.rename(columns={df1.columns[4]: "THURSDAY"}, inplace=True)
+    df1.rename(columns={df1.columns[5]: "FRIDAY"}, inplace=True)
     print("data cleaned")
     return df1
 
@@ -60,14 +70,45 @@ def create_json_datafile(data, sheetname):
     json_string = data.to_json(orient="records")
     with open(filepath, 'w') as json:
         json.write(json_string)
+        json.close()
 
 
 # find correct schedule:
-def print_schedule():
-    schedule = 'asd'
-    return schedule
-    # TODO: send correct schedule based on time, class, div
 
+def schedule(sheetname):
+    import json
+    from flask import jsonify
+    import datetime
+    folder = '../app/json'
+    filename = 'jsontt_'+str(sheetname)+'.json'
+    filepath = os.path.join(folder, filename)
+    with open(filepath) as f:
+        data = json.load(f)
+    now = datetime.datetime.now()
+    day = now.strftime("%A").upper()  # day done
+    time = '02:12'  # now.strftime("%H:%M")
+    print(time)
+    for index, i in enumerate(data):
+        time_range = i.get("Time")
+        start_time, end_time = time_range.split(" - ")
+        if start_time <= time <= end_time:
+            current_class = i.get(day)
+            if index > 0:
+                previous_class = data[index-1].get(day)
+            else:
+                previous_class = None
+
+        # Search for next item in the loop
+            if index < len(data)-1:
+                next_class = data[index+1].get(day)
+            else:
+                next_class = None
+    if (time > end_time):
+        current_class = "Classes over"
+        previous_class = "Classes over"
+        next_class = "Classes over"
+    response = [day, time, current_class, previous_class, next_class]
+    return response
 
     # main:
 app = Flask(__name__,
@@ -85,8 +126,7 @@ def return_json_data():
     value = request.form.get('value')
     tt_data = read_data(value)
     create_json_datafile(tt_data, value)
-
-    return str(print_schedule())
+    return schedule(value)
 
 
 if __name__ == '__main__':

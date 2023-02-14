@@ -2,61 +2,40 @@ import datetime
 import json
 import sys
 import os
-
 sys.path.append('../')
-folder = '../app/json'
-# example:
-filename = 'jsontt_4.json'
-filepath = os.path.join(folder, filename)
-
-with open(filepath) as f:
-    data = json.load(f)
-print(data[2].get('Time'))
-# Get the current day and time
-now = datetime.datetime.now()
-day = now.strftime("%A").upper()
-time = now.strftime("%H:%M")
-print(data[2].get(day))
-
-# output:
-# print(data[i].get(day)) where i is the current time object
-
-print(now, day, time)
-print(str(day))
-
-for i in data:
-    with open('txt.txt', 'a') as d:
-        d.write(str(i))
-    d.close()
-    print(i.keys())
-    print('\n')
-    print('\n')
-    print('\n')
-
-    print(i.values())
-    print('\n')
-    print('\n')
-    print('\n')
-
-    print(i.get(day))
-
-    if (i.keys() == str(day)):
-        print(i.get(day))
 
 
-# data[2]
+def schedule():
+    folder = '../app/json'
+    filename = 'jsontt_4.json'
+    filepath = os.path.join(folder, filename)
+    with open(filepath) as f:
+        data = json.load(f)
+    now = datetime.datetime.now()
+    day = now.strftime("%A").upper()  # day done
+    # time = now.strftime("%H:%M")
+    time = '02:12'
+    print(time)
+    for i in data:
+        time_range = i.get("Time")
+        start_time, end_time = time_range.split(" - ")
+        if start_time <= time <= end_time:
+            print(i.get(day))
+    if (time > end_time):
+        print(time)
+        print(end_time)
+        print("Classes over")
+        # if (day in i.keys()):
+        #     print(i.get(day))  # whole day schedule
 
-# # Loop through the schedule to find the current class
-# current_class = None
-# for period in data:
-#     timing = period["DAY\nTIMING              "].split()
-#     if len(timing) >= 4 and timing[1] <= time < timing[3]:
-#         if day in period:
-#             current_class = period[day]
-#             break
 
-# # Print the current class, or a message if there is no current class
-# if current_class:
-#     print(current_class)
+schedule()
+
+# current_time=datetime.datetime.now().time()
+# print(current_time)
+# start_time=datetime.time(hour=21)
+# end_time=datetime.time(hour=22)
+
+#     print("The current time is between 11:00 and 12:00.")
 # else:
-#     print("There is no current class at this time.")
+#     print("The current time is not between 11:00 and 12:00.")

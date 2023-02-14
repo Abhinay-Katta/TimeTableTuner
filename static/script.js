@@ -29,9 +29,13 @@ function return_div_num(num) {
         url: '/return_json_data',
         data: { value: num },
         success: function (response) {
-            // handle the response from Flask here
-            // TODO: print the datetime, current class, next classes and other shit using this.
-            document.getElementById('json').innerHTML = response;
+            // handle the parsed_response here
+            // For example:
+            document.getElementById('day').innerHTML = response[0];
+            document.getElementById('time').innerHTML = response[1];
+            document.getElementById('class').innerHTML = response[2];
+            document.getElementById('previous_class').innerHTML = response[3];
+            document.getElementById('next_class').innerHTML = response[4];
         }
     });
 }
