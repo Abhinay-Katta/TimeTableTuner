@@ -38,19 +38,11 @@ def clean_TT(df1):
     df1.iloc[5, :] = df1.iloc[5, :].fillna('RECESS')
     df1.fillna(method='ffill', inplace=True)
     df1.iloc[4, 0] = '01:50 - 02:40'
-# REMOVED PART:
-    # df1.columns = df1.columns.str.replace('(online)', '')
-    # df1.columns = df1.columns.str.replace(' ', '')
-    # df1.columns = df1.columns.str.replace('Y()', 'Y')
-# REASON:
-    # STRING FIX WAS NOT WORKING, SO JUST HAD TO REPLACE THAT WITH THE FOLLOWING:
-    # INCREASES WORKLOAD BUT DOES WORK:
-    df1.rename(columns={df1.columns[0]: "Time"}, inplace=True)
-    df1.rename(columns={df1.columns[1]: "MONDAY"}, inplace=True)
-    df1.rename(columns={df1.columns[2]: "TUESDAY"}, inplace=True)
-    df1.rename(columns={df1.columns[3]: "WEDNESDAY"}, inplace=True)
-    df1.rename(columns={df1.columns[4]: "THURSDAY"}, inplace=True)
-    df1.rename(columns={df1.columns[5]: "FRIDAY"}, inplace=True)
+
+    replaces = ["Time", "Monday", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"]
+
+    for i in range(0, 6):
+        df1.rename(columns={df1.columns[i]: replaces[i]}, inplace=True)
 
     df1['Time'] = ['10:00 - 11:00', '11:00 - 12:00', '12:00 - 13:00', '13:00 - 13:50',
                    '13:50 - 14:40', '14:40 - 15:00', '15:00 - 16:00', '16:00 - 17:00']
@@ -116,6 +108,7 @@ def schedule(sheetname):
     response = [day.lower(), time, current_class, previous_class, next_class]
     print(response)
     return response
+
 
     # main:
 app = Flask(__name__,
