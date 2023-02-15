@@ -11,7 +11,7 @@ sys.path.append('../')
 def read_data(num):
     sheetname = '6B'+str(num)+'_AI'
     df = pandas.read_excel('./tt.xlsx', sheet_name=sheetname)
-    print("data created")
+    # print("data created")
     return clean_TT(df)
 
 
@@ -51,7 +51,7 @@ def clean_TT(df1):
     df1.rename(columns={df1.columns[3]: "WEDNESDAY"}, inplace=True)
     df1.rename(columns={df1.columns[4]: "THURSDAY"}, inplace=True)
     df1.rename(columns={df1.columns[5]: "FRIDAY"}, inplace=True)
-    print("data cleaned")
+    # print("data cleaned")
     return df1
 
 # create json
@@ -64,9 +64,8 @@ def create_json_datafile(data, sheetname):
     # check if the folder exists or not, create one if it doesnt
     if not os.path.exists(folder):
         os.makedirs(folder)
-
-    print(filename)
-    print(filepath)
+    # print(filename)
+    # print(filepath)
     json_string = data.to_json(orient="records")
     with open(filepath, 'w') as json:
         json.write(json_string)
@@ -85,37 +84,36 @@ def schedule(sheetname):
     with open(filepath) as f:
         data = json.load(f)
     now = datetime.datetime.now()
-    day = now.strftime("%A").upper()  # day done
+    day = now.strftime("%A").upper()
     time = now.strftime("%H:%M")
-    print(time)
+    # print(time)
     if (day == 'SUNDAY' or day == 'SATURDAY'):
-        current_class = previous_class = next_class = 'No classes today'
+        current_class = previous_class = next_class = 'no classes today'
     else:
         for index, i in enumerate(data):
             time_range = i.get("Time")
             start_time, end_time = time_range.split(" - ")
-            print(start_time, end_time)
-            print('\n')
+            # print(start_time, end_time)
+            # print('\n')
             if (time < '10:00'):
-                current_class = previous_class = next_class = "Classes have not started yet"
+                current_class = previous_class = next_class = "classes have not started yet"
             elif (time > end_time):
-                current_class = previous_class = next_class = "Classes ended for today"
+                current_class = previous_class = next_class = "classes ended for today"
             elif start_time <= time <= end_time:
                 current_class = i.get(day)
                 if index > 0:
                     previous_class = data[index-1].get(day)
                 else:
-                    previous_class = 'First class'
-
+                    previous_class = 'first class'
             # Search for next item in the loop
                 if index < len(data)-1:
                     next_class = data[index+1].get(day)
                 else:
-                    next_class = 'Last class'
+                    next_class = 'last class'
             else:
                 current_class = previous_class = next_class = 'something went wrong'
-    response = [day, time, current_class, previous_class, next_class]
-    print(response)
+    response = [day.lower(), time, current_class, previous_class, next_class]
+    # print(response)
     return response
 
 
