@@ -51,6 +51,10 @@ def clean_TT(df1):
     df1.rename(columns={df1.columns[3]: "WEDNESDAY"}, inplace=True)
     df1.rename(columns={df1.columns[4]: "THURSDAY"}, inplace=True)
     df1.rename(columns={df1.columns[5]: "FRIDAY"}, inplace=True)
+
+    df1['Time'] = ['10:00 - 11:00', '11:00 - 12:00', '12:00 - 13:00', '13:00 - 13:50',
+                   '13:50 - 14:40', '14:40 - 15:00', '15:00 - 16:00', '16:00 - 17:00']
+
     # print("data cleaned")
     return df1
 
@@ -76,7 +80,6 @@ def create_json_datafile(data, sheetname):
 
 def schedule(sheetname):
     import json
-    from flask import jsonify
     import datetime
     folder = '../app/json'
     filename = 'jsontt_'+str(sheetname)+'.json'
@@ -86,14 +89,14 @@ def schedule(sheetname):
     now = datetime.datetime.now()
     day = now.strftime("%A").upper()
     time = now.strftime("%H:%M")
-    # print(time)
+    print(time)
     if (day == 'SUNDAY' or day == 'SATURDAY'):
         current_class = previous_class = next_class = 'no classes today'
     else:
         for index, i in enumerate(data):
             time_range = i.get("Time")
             start_time, end_time = time_range.split(" - ")
-            # print(start_time, end_time)
+            print(start_time, end_time)
             # print('\n')
             if (time < '10:00'):
                 current_class = previous_class = next_class = "classes have not started yet"
@@ -110,12 +113,9 @@ def schedule(sheetname):
                     next_class = data[index+1].get(day)
                 else:
                     next_class = 'last class'
-            else:
-                current_class = previous_class = next_class = 'something went wrong'
     response = [day.lower(), time, current_class, previous_class, next_class]
-    # print(response)
+    print(response)
     return response
-
 
     # main:
 app = Flask(__name__,
