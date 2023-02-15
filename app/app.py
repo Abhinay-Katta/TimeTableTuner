@@ -88,28 +88,34 @@ def schedule(sheetname):
     day = now.strftime("%A").upper()  # day done
     time = now.strftime("%H:%M")
     print(time)
-    for index, i in enumerate(data):
-        time_range = i.get("Time")
-        start_time, end_time = time_range.split(" - ")
-        if start_time <= time <= end_time:
-            current_class = i.get(day)
-            if index > 0:
-                previous_class = data[index-1].get(day)
-            else:
-                previous_class = None
-
-        # Search for next item in the loop
-            if index < len(data)-1:
-                next_class = data[index+1].get(day)
-            else:
-                next_class = None
-    if not ('10:00' < time or time > end_time):
-        current_class = "no classes currently"
-        previous_class = "no classes currently"
-        next_class = "no classes currently"
     if (day == 'SUNDAY' or day == 'SATURDAY'):
         current_class = previous_class = next_class = 'No classes today'
+    else:
+        for index, i in enumerate(data):
+            time_range = i.get("Time")
+            start_time, end_time = time_range.split(" - ")
+            print(start_time, end_time)
+            print('\n')
+            if (time < '10:00'):
+                current_class = previous_class = next_class = "Classes have not started yet"
+            elif (time > end_time):
+                current_class = previous_class = next_class = "Classes ended for today"
+            elif start_time <= time <= end_time:
+                current_class = i.get(day)
+                if index > 0:
+                    previous_class = data[index-1].get(day)
+                else:
+                    previous_class = 'First class'
+
+            # Search for next item in the loop
+                if index < len(data)-1:
+                    next_class = data[index+1].get(day)
+                else:
+                    next_class = 'Last class'
+            else:
+                current_class = previous_class = next_class = 'something went wrong'
     response = [day, time, current_class, previous_class, next_class]
+    print(response)
     return response
 
 
