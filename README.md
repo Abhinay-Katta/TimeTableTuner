@@ -1,4 +1,4 @@
-# Em-Ithandi
+# TimeTableTuner
 
 ## a simple flask app that:
 - cleans an excel file's sheet
