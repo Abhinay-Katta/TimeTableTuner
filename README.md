@@ -7,7 +7,7 @@
 - sends the cleaned data into these json files
 - prints the correct class and other info onto the html
   - if no class is currently running it would relevant response that is either classes have not started or they ended already 
-![image](https://user-images.githubusercontent.com/76813100/220707124-077c1887-4057-49f1-a00e-2d71e4879892.png)
+![image](https://user-images.githubusercontent.com/76813100/220707536-8ec932d1-9511-412a-b528-775a06e40c2a.png)
 
 
 
