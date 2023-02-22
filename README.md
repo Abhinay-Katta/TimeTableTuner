@@ -6,6 +6,11 @@
   - the division number is given from users when they click on the division button
 - sends the cleaned data into these json files
 - prints the correct class and other info onto the html
+  - if no class is currently running it would relevant response that is either classes have not started or they ended already 
+![image](https://user-images.githubusercontent.com/76813100/220707124-077c1887-4057-49f1-a00e-2d71e4879892.png)
+
+
+
 
 ## usage:
 
